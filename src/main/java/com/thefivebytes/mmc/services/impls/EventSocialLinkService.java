@@ -37,9 +37,7 @@ public class EventSocialLinkService implements IEventSocialMediaLinkService {
 
     @Override
     public Optional<EventSocialMediaLinkDTO> addEventSocialMediaLink(EventSocialMediaLinkDTO eventSocialMediaLinkDTO) {
-        System.out.println(eventSocialMediaLinkDTO);
         EventSocialMediaLink eventSocialMediaLink = EventSocialMediaLinkDtoConverter.eventSocialMediaLinkDtoToEventSocialMediaLink(eventSocialMediaLinkDTO);
-        System.out.println(eventSocialMediaLink);
         return Optional.of(EventSocialMediaLinkDtoConverter.eventSocialMediaLinkToEventSocialMediaLinkDto(iEventSocialMediaLinkRepository.save(eventSocialMediaLink)));
     }
 

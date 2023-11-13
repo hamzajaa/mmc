@@ -28,7 +28,6 @@ public class EventSocialMediaLinkController {
 
     @PostMapping
     public EventSocialMediaLinkDTO addEventSocialMediaLink(@RequestBody EventSocialMediaLinkDTO eventSocialMediaLinkDTO){
-        System.out.println(eventSocialMediaLinkDTO);
         return iEventSocialMediaLinkService.addEventSocialMediaLink(eventSocialMediaLinkDTO).orElseThrow();
     }
 

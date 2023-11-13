@@ -40,7 +40,6 @@ public class EventTypeService implements IEventTypeService {
     @Override
     public Optional<EventTypeDTO> editEventType(EventTypeDTO eventTypeDTO) {
         if(this.findEventTypeById(eventTypeDTO.getId()).isPresent()){
-            EventType eventType = iEventTypeRepositoery.findById(eventTypeDTO.getId()).orElseThrow();
             return this.addEventType(eventTypeDTO);
         }
         return Optional.empty();

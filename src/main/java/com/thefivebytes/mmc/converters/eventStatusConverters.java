@@ -4,7 +4,7 @@ import com.thefivebytes.mmc.dto.eventStatusDto;
 import com.thefivebytes.mmc.entities.eventStatus;
 import lombok.Builder;
 
-@Builder
+
 public class eventStatusConverters {
 
   public static eventStatusDto toDto(eventStatus eventStatus){

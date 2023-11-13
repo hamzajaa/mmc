@@ -10,35 +10,35 @@ import com.thefivebytes.mmc.dto.eventStatusDto;
 import java.util.List;
 
 @RestController
-@RequestMapping()
+@RequestMapping("/eventStatus")
 public class eventStatusControllers {
     @Autowired
     private  eventStatusImpl eventStatusImp;
 
 
     @GetMapping("/{id}")
-    public eventStatusDto findProviderById(@PathVariable Long id) {
+    public eventStatusDto findeventStatusById(@PathVariable Long id) {
         return eventStatusImp.findById(id).orElseThrow();
     }
 
     @GetMapping
-    public List<eventStatusDto> findAllProviders() {
+    public List<eventStatusDto> findAlleventStatus() {
         return eventStatusImp.findAllStatus().orElseThrow() ;
     }
 
     @PostMapping
-    public eventStatusDto addProvider(@RequestBody eventStatusDto p) {
+    public eventStatusDto addeventStatus(@RequestBody eventStatusDto p) {
 
         return eventStatusImp.addStatus(p).orElseThrow() ;
     }
 
     @PutMapping
-    public eventStatusDto updateProvider(@RequestBody eventStatusDto p) {
+    public eventStatusDto updateeventStatus(@RequestBody eventStatusDto p) {
         return eventStatusImp.updateStatus(p).orElseThrow();
     }
 
     @DeleteMapping("/{id}")
-    public void deleteProvider(@PathVariable Long id){
+    public void deleteeventStatus(@PathVariable Long id){
 
         eventStatusImp.deleteStatus(id);
     }

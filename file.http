@@ -1,0 +1,8 @@
+POST http://localhost:8056/api/v1/sessionTypes/
+Content-Type: application/json
+
+{
+  "label": "ffff"
+}
+
+###

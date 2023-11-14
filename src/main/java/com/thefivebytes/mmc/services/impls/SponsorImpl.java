@@ -1,10 +1,8 @@
 package com.thefivebytes.mmc.services.impls;
 
 import com.thefivebytes.mmc.converters.SponsorConverters;
-import com.thefivebytes.mmc.converters.eventStatusConverters;
 import com.thefivebytes.mmc.dto.SponsorDto;
 import com.thefivebytes.mmc.entities.Sponsor;
-import com.thefivebytes.mmc.entities.eventStatus;
 import com.thefivebytes.mmc.repositories.SponsorRepo;
 import com.thefivebytes.mmc.services.facade.ISponsorFacade;
 import org.springframework.beans.factory.annotation.Autowired;

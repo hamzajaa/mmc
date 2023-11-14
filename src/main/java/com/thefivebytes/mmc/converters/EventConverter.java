@@ -10,11 +10,10 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
 public class EventConverter {
 
 
-    public Event toEntity(EventDto dto) {
+    public static Event toEntity(EventDto dto) {
         Event entity = new Event();
         if (dto == null) {
             return null;
@@ -22,7 +21,7 @@ public class EventConverter {
 
             entity.setId(dto.getId());
             entity.setName(dto.getName());
-            entity.setDescription(entity.getDescription());
+            entity.setDescription(dto.getDescription());
             entity.setStartDate(dto.getStartDate());
             entity.setEndDate(dto.getEndDate());
             entity.setAddress(dto.getAddress());
@@ -36,7 +35,7 @@ public class EventConverter {
         }
     }
 
-    public EventDto toDto(Event entity) {
+    public static EventDto toDto(Event entity) {
         if (entity == null) {
             return null;
         } else {
@@ -57,7 +56,7 @@ public class EventConverter {
         }
     }
 
-    public List<EventDto> toDto(List<Event> entities){
+    public static List<EventDto> toDto(List<Event> entities){
         List<EventDto> dtos = new ArrayList<>();
         for (Event entity : entities) {
             EventDto dto = toDto(entity);

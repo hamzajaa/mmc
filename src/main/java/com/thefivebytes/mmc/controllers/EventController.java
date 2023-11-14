@@ -16,37 +16,35 @@ public class EventController {
 
 
     private IEventService eventService;
-    private EventConverter eventConverter;
 
-    public EventController(IEventService eventService, EventConverter eventConverter) {
+    public EventController(IEventService eventService ) {
         this.eventService = eventService;
-        this.eventConverter = eventConverter;
     }
 
     @GetMapping("/")
     public List<EventDto> findAll() {
-        return eventConverter.toDto(eventService.findAll());
+        return EventConverter.toDto(eventService.findAll());
     }
 
     @GetMapping("/id/{id}")
     public EventDto findById(@PathVariable Long id) {
-        return eventConverter.toDto(eventService.findById(id).get());
+        return EventConverter.toDto(eventService.findById(id).get());
     }
 
     @PostMapping("/")
     @PreAuthorize("hasAuthority('ADMIN')")
     public EventDto save(@RequestBody EventDto eventDto) {
-        Event entity = eventConverter.toEntity(eventDto);
+        Event entity = EventConverter.toEntity(eventDto);
         entity = eventService.save(entity);
-        return eventConverter.toDto(entity);
+        return EventConverter.toDto(entity);
     }
 
     @PutMapping("/")
     @PreAuthorize("hasAuthority('ADMIN')")
     public EventDto update(@RequestBody EventDto eventDto) {
-        Event entity = eventConverter.toEntity(eventDto);
+        Event entity = EventConverter.toEntity(eventDto);
         entity = eventService.update(entity);
-        return eventConverter.toDto(entity);
+        return EventConverter.toDto(entity);
 
     }
 

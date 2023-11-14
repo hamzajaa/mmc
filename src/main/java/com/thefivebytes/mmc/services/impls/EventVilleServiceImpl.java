@@ -35,7 +35,8 @@ public class EventVilleServiceImpl implements IEventVilleService {
     @Override
     public Optional<EventVilleDTO> addEventVille(EventVilleDTO eventVilleDTO) {
         EventVille eventVille = EventVilleDTOConverter.dtoToEntity(eventVilleDTO);
-        return Optional.of(EventVilleDTOConverter.entityToDTO(iEventVilleRepository.save(eventVille)));
+        EventVille saved = iEventVilleRepository.save(eventVille);
+        return Optional.of(EventVilleDTOConverter.entityToDTO(saved));
     }
 
     @Override

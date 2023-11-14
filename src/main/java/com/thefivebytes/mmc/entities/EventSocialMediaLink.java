@@ -1,18 +1,19 @@
 package com.thefivebytes.mmc.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Data
-@ToString
+@NoArgsConstructor
 @Entity
 public class EventSocialMediaLink {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String label;
+    @ManyToOne
+    private Event event;
+
 }

@@ -15,4 +15,5 @@ public class SocialMediaLinkType {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String label;
+
 }

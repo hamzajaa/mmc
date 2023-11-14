@@ -11,13 +11,15 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Data
-@NoArgsConstructor @AllArgsConstructor @ToString
+@NoArgsConstructor
 @Entity
 public class SocialMediaLinkSpeaker {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String socialMediaLink ;
+    private String socialMediaLink;
+
+
 
 }

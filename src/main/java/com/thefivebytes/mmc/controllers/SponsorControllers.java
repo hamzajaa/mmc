@@ -1,9 +1,7 @@
 package com.thefivebytes.mmc.controllers;
 
 import com.thefivebytes.mmc.dto.SponsorDto;
-import com.thefivebytes.mmc.dto.eventStatusDto;
 import com.thefivebytes.mmc.services.impls.SponsorImpl;
-import com.thefivebytes.mmc.services.impls.eventStatusImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

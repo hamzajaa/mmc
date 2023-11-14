@@ -1,5 +1,7 @@
 package com.thefivebytes.mmc.security.bean;
 
+import com.thefivebytes.mmc.entities.EventOrg;
+import com.thefivebytes.mmc.entities.Participant;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.*;
@@ -31,4 +33,10 @@ public class User {
             joinColumns = @JoinColumn(name = "users_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
     private Set<Role> roles = new HashSet<>();
+
+//    @OneToOne(mappedBy = "user")
+//    private EventOrg eventOrg;
+//
+//    @OneToOne(mappedBy = "user")
+//    private Participant participant;
 }

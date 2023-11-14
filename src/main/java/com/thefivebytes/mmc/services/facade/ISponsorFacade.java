@@ -1,7 +1,6 @@
 package com.thefivebytes.mmc.services.facade;
 
 import com.thefivebytes.mmc.dto.SponsorDto;
-import com.thefivebytes.mmc.dto.eventStatusDto;
 
 import java.util.List;
 import java.util.Optional;

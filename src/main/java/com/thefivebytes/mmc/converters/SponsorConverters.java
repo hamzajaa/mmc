@@ -1,9 +1,7 @@
 package com.thefivebytes.mmc.converters;
 
 import com.thefivebytes.mmc.dto.SponsorDto;
-import com.thefivebytes.mmc.dto.eventStatusDto;
 import com.thefivebytes.mmc.entities.Sponsor;
-import com.thefivebytes.mmc.entities.eventStatus;
 
 public class SponsorConverters {
     public static SponsorDto toDto(Sponsor sponsor){

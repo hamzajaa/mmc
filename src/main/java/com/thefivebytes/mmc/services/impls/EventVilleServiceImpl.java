@@ -5,40 +5,42 @@ import com.thefivebytes.mmc.dto.EventVilleDTO;
 import com.thefivebytes.mmc.entities.EventVille;
 import com.thefivebytes.mmc.repositories.IEventVilleRepository;
 import com.thefivebytes.mmc.services.facade.IEventVilleService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class EventVilleServiceImpl implements IEventVilleService {
 
     private final IEventVilleRepository iEventVilleRepository;
 
     public EventVilleServiceImpl(IEventVilleRepository iEventVilleRepository) {
-        this.iEventVilleRepository=iEventVilleRepository;
+        this.iEventVilleRepository = iEventVilleRepository;
     }
 
     @Override
     public Optional<EventVilleDTO> findEventVilleById(Long id) {
-       EventVille eventVille=iEventVilleRepository.findById(id).orElseThrow();
+        EventVille eventVille = iEventVilleRepository.findById(id).orElseThrow();
         return Optional.of(EventVilleDTOConverter.entityToDTO(eventVille));
     }
 
     @Override
     public Optional<List<EventVilleDTO>> findAllEventVilles() {
-        List<EventVille> eventVilleList=iEventVilleRepository.findAll();
-        List<EventVilleDTO> eventVilleDTOS=eventVilleList.stream().map(EventVilleDTOConverter::entityToDTO).toList();
+        List<EventVille> eventVilleList = iEventVilleRepository.findAll();
+        List<EventVilleDTO> eventVilleDTOS = eventVilleList.stream().map(EventVilleDTOConverter::entityToDTO).toList();
         return Optional.of(eventVilleDTOS);
     }
 
     @Override
     public Optional<EventVilleDTO> addEventVille(EventVilleDTO eventVilleDTO) {
-       EventVille eventVille=EventVilleDTOConverter.dtoToEntity(eventVilleDTO);
-       return Optional.of(EventVilleDTOConverter.entityToDTO(iEventVilleRepository.save(eventVille)));
+        EventVille eventVille = EventVilleDTOConverter.dtoToEntity(eventVilleDTO);
+        return Optional.of(EventVilleDTOConverter.entityToDTO(iEventVilleRepository.save(eventVille)));
     }
 
     @Override
     public Optional<EventVilleDTO> updateEventVille(EventVilleDTO eventVilleDTO) {
-        if(this.findEventVilleById(eventVilleDTO.getId()).isPresent()){
+        if (this.findEventVilleById(eventVilleDTO.getId()).isPresent()) {
             return this.addEventVille(eventVilleDTO);
         }
         return Optional.empty();
